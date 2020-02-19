@@ -1,6 +1,11 @@
 import java.util.Scanner;
 public class AnimalTypePicker {
-  static Scanner UserInputScanner = new Scanner(System.in);
+  private static String getNextUserInput() {
+  Scanner UserInputScanner = new Scanner(System.in);
+  String UserInput = UserInputScanner.next();
+  UserInputScanner.close();
+  return(UserInput);
+}
   public static void main(String[] args) {
     BASE_Animals Animals = new BASE_Animals();
 
@@ -11,15 +16,16 @@ public class AnimalTypePicker {
     Boolean AnimalWasChosenByItsNumber = null;
     String UserInput;
     int ChosenAnimalByNumber;
+    System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
+    System.out.println("--------------------");
+    for (int i=0; i<Animals.TypesOfAnimals.length; i++) {
+      System.out.println("#" + (i+1) + ": " + Animals.TypesOfAnimals[i]);
+    }
+    System.out.println("--------------------");
     do {
-      System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
-      for (int i=0; i<Animals.TypesOfAnimals.length; i++) {
-        if (i == 0 || i == Animals.TypesOfAnimals.length-1) {
-          System.out.println();
-        }
-        System.out.println("#" + (i+1) + ": " + Animals.TypesOfAnimals[i]);
-      }
-      UserInput = UserInputScanner.nextLine();
+      //Scanner UserInputScanner = new Scanner(System.in);
+
+      UserInput = getNextUserInput();
       try {
         ChosenAnimalByNumber = Integer.parseInt(UserInput);
         if (ChosenAnimalByNumber < 0) {
@@ -48,7 +54,7 @@ public class AnimalTypePicker {
           System.out.println("You selected a(n) " + ChosenAnimal + ". Is this correct? (y/n)");
           boolean hasConfirmedSelection = false;
           while (hasConfirmedSelection == false) {
-            char InputVerification = UserInputScanner.next().charAt(0);
+            char InputVerification = getNextUserInput().charAt(0);
             if (InputVerification == 'y' || InputVerification == 'Y') {
               System.out.println("Okay! your selection has now been confirmed.");
               //hasSelected = true;  commented out due to it already being set to true.
