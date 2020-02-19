@@ -3,18 +3,25 @@ public class AnimalTypePicker {
   static Scanner UserInputScanner = new Scanner(System.in);
   public static void main(String[] args) {
     BASE_Animals Animals = new BASE_Animals();
-    System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
-    for (int i=0; i<Animals.TypesOfAnimals.length; i++) {
-      System.out.println("#" + (i+1) + ": " + Animals.TypesOfAnimals[i]);
+
       //------------
-    }
+
     boolean hasSelected = false;
     String ChosenAnimal = null;//is null a reserved keyword?? should check sometime
     Boolean AnimalWasChosenByItsNumber = null;
+    String UserInput;
+    int ChosenAnimalByNumber;
     do {
-      String UserInput = UserInputScanner.nextLine();
+      System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
+      for (int i=0; i<Animals.TypesOfAnimals.length; i++) {
+        if (i == 0 || i == Animals.TypesOfAnimals.length-1) {
+          System.out.println();
+        }
+        System.out.println("#" + (i+1) + ": " + Animals.TypesOfAnimals[i]);
+      }
+      UserInput = UserInputScanner.nextLine();
       try {
-        int ChosenAnimalByNumber = Integer.parseInt(UserInput);
+        ChosenAnimalByNumber = Integer.parseInt(UserInput);
         if (ChosenAnimalByNumber < 0) {
           System.out.println("The negative number you entered has been automatically converted to its positive counterpart.");
         }
@@ -38,9 +45,27 @@ public class AnimalTypePicker {
 /*      catch (Exception EXCEPTION_AnimalIdentificationLoop) {
         System.out.println("Unfortunately, an error of type \"" + EXCEPTION_AnimalIdentificationLoop + "\" has occurred in the \"AnimalIdentificationLoop\".");
       }*/
+          System.out.println("You selected a(n) " + ChosenAnimal + ". Is this correct? (y/n)");
+          boolean hasConfirmedSelection = false;
+          while (hasConfirmedSelection == false) {
+            char InputVerification = UserInputScanner.next().charAt(0);
+            if (InputVerification == 'y' || InputVerification == 'Y') {
+              System.out.println("Okay! your selection has now been confirmed.");
+              //hasSelected = true;  commented out due to it already being set to true.
+              hasConfirmedSelection = true;
+            }
+            else if (InputVerification == 'n' || InputVerification == 'N') {
+              System.out.println("Your selection has been declined. Select your animal again");
+              hasSelected = false;
+              hasConfirmedSelection = true;
+            }
+            else {
+              System.out.println("Couldn't read the inputted character. Please enter it again.");
+            }
+          }
     } while (hasSelected == false); //part of a do-while loop
-    System.out.println("You selected a(n) " + ChosenAnimal + ". Is this correct? (y/n)");
-    String UserInput = UserInputScanner.nextLine();
+
+    //String UserInput = UserInputScanner.nextLine();
   }
 }
 class BASE_Animals {
