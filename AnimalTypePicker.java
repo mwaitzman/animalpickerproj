@@ -10,14 +10,14 @@ public class AnimalTypePicker {
     }
     boolean hasSelected = false;
     String ChosenAnimal = null;//is null a reserved keyword?? should check sometime
-    Boolean AnimalWasChosenByItsNumber = new Boolean(null);
+    Boolean AnimalWasChosenByItsNumber = null;
     do {
       String UserInput = UserInputScanner.nextLine();
       try {
         try {
         int ChosenAnimalByNumber = Integer.parseInt(UserInput);
         AnimalWasChosenByItsNumber = true;
-        ChosenAnimal = Animals.TypesOfAnimals[UserInput-1];
+        ChosenAnimal = Animals.TypesOfAnimals[ChosenAnimalByNumber-1];
         hasSelected = true;
         }
         catch (Exception AAA) {
