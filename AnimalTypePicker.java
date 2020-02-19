@@ -14,6 +14,9 @@ public class AnimalTypePicker {
     do {
       System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
       for (int i=0; i<Animals.TypesOfAnimals.length; i++) {
+        if (i == 0 || i == Animals.TypesOfAnimals.length-1) {
+          System.out.println();
+        }
         System.out.println("#" + (i+1) + ": " + Animals.TypesOfAnimals[i]);
       }
       UserInput = UserInputScanner.nextLine();
