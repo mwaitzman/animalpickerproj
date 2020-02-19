@@ -30,8 +30,8 @@ public class AnimalTypePicker {
           }
         }
       }
-      catch (Exception AnimalIdentificationLoop) {
-        System.out.println("Unfortunately, an error of type \"" + Exception + "\" has occurred in location \"" + AnimalIdentificationLoop + "\".");
+      catch (Exception EXCEPTION_AnimalIdentificationLoop) {
+        System.out.println("Unfortunately, an error of type \"" + EXCEPTION_AnimalIdentificationLoop + "\" has occurred in the \"AnimalIdentificationLoop\".");
       }
     } while (hasSelected == false); //part of a do-while loop
     System.out.println("You selected a(n) " + ChosenAnimal + ". Is this correct? (y/n)");
