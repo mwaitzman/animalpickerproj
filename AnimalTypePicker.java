@@ -1,18 +1,10 @@
 import java.util.Scanner;
 public class AnimalTypePicker {
-  private static String getNextUserInput() {
-  Scanner UserInputScanner = new Scanner(System.in);
-  String UserInput = UserInputScanner.next();
-  UserInputScanner.close();
-  return(UserInput);
-}
   public static void main(String[] args) {
     BASE_Animals Animals = new BASE_Animals();
-
-      //------------
-
+    Scanner UserInputScanner = new Scanner(System.in);
     boolean hasSelected = false;
-    String ChosenAnimal = null;//is null a reserved keyword?? should check sometime
+    String ChosenAnimal = null;
     Boolean AnimalWasChosenByItsNumber = null;
     String UserInput;
     int ChosenAnimalByNumber;
@@ -23,9 +15,7 @@ public class AnimalTypePicker {
     }
     System.out.println("--------------------");
     do {
-      //Scanner UserInputScanner = new Scanner(System.in);
-
-      UserInput = getNextUserInput();
+      UserInput = UserInputScanner.nextLine();
       try {
         ChosenAnimalByNumber = Integer.parseInt(UserInput);
         if (ChosenAnimalByNumber < 0) {
@@ -54,7 +44,7 @@ public class AnimalTypePicker {
           System.out.println("You selected a(n) " + ChosenAnimal + ". Is this correct? (y/n)");
           boolean hasConfirmedSelection = false;
           while (hasConfirmedSelection == false) {
-            char InputVerification = getNextUserInput().charAt(0);
+            char InputVerification = UserInputScanner.nextLine().charAt(0);
             if (InputVerification == 'y' || InputVerification == 'Y') {
               System.out.println("Okay! your selection has now been confirmed.");
               //hasSelected = true;  commented out due to it already being set to true.
