@@ -5,7 +5,6 @@ public class AnimalTypePicker {
     Scanner UserInputScanner = new Scanner(System.in);
     boolean hasSelectedAnimalType = false;
     String ChosenAnimal = null;
-    Boolean AnimalWasChosenByItsNumber = null;
     String UserInput;
     int ChosenAnimalByNumber;
     System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
@@ -21,12 +20,15 @@ public class AnimalTypePicker {
         if (ChosenAnimalByNumber < 0) {
           System.out.println("The negative number you entered has been automatically converted to its positive counterpart.");
         }
-        AnimalWasChosenByItsNumber = true;
+        try {
         ChosenAnimal = Animals.TypesOfAnimals[Math.abs(ChosenAnimalByNumber)-1];
         hasSelectedAnimalType = true;
+        }
+        catch (ArrayIndexOutOfBoundsException IntegerTooHighException) {
+          System.out.println("Cannot find an animal with " + ChosenAnimalByNumber + " as an ID.");
+        }
       }
       catch (NumberFormatException ChosenAnimal_NFE) {
-        AnimalWasChosenByItsNumber = false;
         for(int i=0; i<Animals.TypesOfAnimals.length; i++) {
           if (UserInput.equalsIgnoreCase(Animals.TypesOfAnimals[i])) {
             ChosenAnimal = Animals.TypesOfAnimals[i];
@@ -51,7 +53,7 @@ public class AnimalTypePicker {
               hasConfirmedSelection = true;
             }
             else if (InputVerification == 'n' || InputVerification == 'N') {
-              System.out.println("Your selection has been declined. Select your animal again");
+              System.out.println("Your selection has been declined. Please select your animal again.");
               hasSelectedAnimalType = false;
               hasConfirmedSelection = true;
             }
