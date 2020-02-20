@@ -26,6 +26,7 @@ public class AnimalTypePicker {
         }
         catch (ArrayIndexOutOfBoundsException IntegerTooHighException) {
           System.out.println("Cannot find an animal with " + ChosenAnimalByNumber + " as an ID.");
+          hasSelectedAnimalType = false;
         }
       }
       catch (NumberFormatException ChosenAnimal_NFE) {
@@ -43,6 +44,7 @@ public class AnimalTypePicker {
 /*      catch (Exception EXCEPTION_AnimalIdentificationLoop) {
         System.out.println("Unfortunately, an error of type \"" + EXCEPTION_AnimalIdentificationLoop + "\" has occurred in the \"AnimalIdentificationLoop\".");
       }*/
+      if (hasSelectedAnimalType == true) {
           System.out.println("You selected a(n) " + ChosenAnimal + ". Is this correct? (y/n)");
           boolean hasConfirmedSelection = false;
           while (hasConfirmedSelection == false) {
@@ -61,6 +63,7 @@ public class AnimalTypePicker {
               System.out.println("Couldn't read the inputted character. Please enter it again.");
             }
           }
+        }
     } while (hasSelectedAnimalType == false); //part of a do-while loop
 
     //String UserInput = UserInputScanner.nextLine();
