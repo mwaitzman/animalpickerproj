@@ -3,7 +3,7 @@ public class AnimalTypePicker {
   public static void main(String[] args) {
     BASE_Animals Animals = new BASE_Animals();
     Scanner UserInputScanner = new Scanner(System.in);
-    boolean hasSelected = false;
+    boolean hasSelectedAnimalType = false;
     String ChosenAnimal = null;
     Boolean AnimalWasChosenByItsNumber = null;
     String UserInput;
@@ -23,18 +23,18 @@ public class AnimalTypePicker {
         }
         AnimalWasChosenByItsNumber = true;
         ChosenAnimal = Animals.TypesOfAnimals[Math.abs(ChosenAnimalByNumber)-1];
-        hasSelected = true;
+        hasSelectedAnimalType = true;
       }
       catch (NumberFormatException ChosenAnimal_NFE) {
         AnimalWasChosenByItsNumber = false;
         for(int i=0; i<Animals.TypesOfAnimals.length; i++) {
           if (UserInput.equalsIgnoreCase(Animals.TypesOfAnimals[i])) {
             ChosenAnimal = Animals.TypesOfAnimals[i];
-            hasSelected = true;
+            hasSelectedAnimalType = true;
             break;
           }
         }
-        if (hasSelected == false) {
+        if (hasSelectedAnimalType == false) {
           System.out.println("Unfortunately, an error has occured and your input could not be resolved to an animal. Did you misspell the animal's name/number or input a special character? Try again!");
         }
       }
@@ -47,19 +47,19 @@ public class AnimalTypePicker {
             char InputVerification = UserInputScanner.nextLine().charAt(0);
             if (InputVerification == 'y' || InputVerification == 'Y') {
               System.out.println("Okay! your selection has now been confirmed.");
-              //hasSelected = true;  commented out due to it already being set to true.
+              //hasSelectedAnimalType = true;  commented out due to it already being set to true.
               hasConfirmedSelection = true;
             }
             else if (InputVerification == 'n' || InputVerification == 'N') {
               System.out.println("Your selection has been declined. Select your animal again");
-              hasSelected = false;
+              hasSelectedAnimalType = false;
               hasConfirmedSelection = true;
             }
             else {
               System.out.println("Couldn't read the inputted character. Please enter it again.");
             }
           }
-    } while (hasSelected == false); //part of a do-while loop
+    } while (hasSelectedAnimalType == false); //part of a do-while loop
 
     //String UserInput = UserInputScanner.nextLine();
   }
