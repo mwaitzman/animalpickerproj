@@ -25,7 +25,7 @@ public class AnimalTypePicker {
         hasSelectedAnimalType = true;
         }
         catch (ArrayIndexOutOfBoundsException IntegerTooHighException) {
-          System.out.println("Cannot find an animal with " + ChosenAnimalByNumber + " as an ID.");
+          System.out.println("Cannot find an animal with " + ChosenAnimalByNumber + " as an ID.");//TO-DO: automatically go back to selection without displaying anything else (also append something along the lines of "please try (inputting a selection) again" to this line) -- curently user needs to press enter once before re-selection -- use a while loop maybe?
           hasSelectedAnimalType = false;
         }
       }
