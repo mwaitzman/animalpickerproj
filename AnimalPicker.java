@@ -1,7 +1,9 @@
+package AnimalPicker;
+import AnimalPicker.*;
 import java.util.Scanner;
-public class AnimalTypePicker {
+public class AnimalPicker {
   public static void main(String[] args) {
-    BASE_Animals Animals = new BASE_Animals();
+    PossibleAnimals = DB_Animals.get("all", "name");
     Scanner UserInputScanner = new Scanner(System.in);
     boolean hasSelectedAnimalType = false;
     String ChosenAnimal = null;
