@@ -1,5 +1,5 @@
 package AnimalPicker;
-class handler {
+class Handler {
   protected get(String[] parameters) {
     if (parameters[0].toLowerCase == "name") {
 

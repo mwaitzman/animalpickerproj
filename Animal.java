@@ -1,3 +1,4 @@
+package AnimalPicker;
 public class Animal {
   final String commonName;
 }
