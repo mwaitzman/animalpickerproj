@@ -1,12 +1,12 @@
 package AnimalPickerProject;
 import AnimalPickerProject.Animal;
 class Handler {
-  protected String get(String[] parameters) {
-    if (parameters[0].toLowerCase == "name") {
+  protected static String get(String[] parameters) {
+    if (parameters[0].toLowerCase() == "name") {
 
       return ListOfAnimals.Animal[Integer.parseInt(parameters[1])];
     }
-    else if (parameter[0] == "length") {
+    else if (parameters[0] == "length") {
       return (ListOfAnimals.length());
     }
   else {

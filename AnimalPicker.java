@@ -14,8 +14,8 @@ public class AnimalPicker {
     int ChosenAnimalByNumber;
     System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
     System.out.println("--------------------");
-    for (int i=0; i<Handler.get("length"); i++) {
-      System.out.println("#" + (i+1) + ": " + Animals.TypesOfAnimals[i]);
+    for (int i=0; i<Integer.parseInt(Handler.get(new String[]{"length"})); i++) {
+      System.out.println("#" + (i+1) + ": " + Handler.get(new String[]{"name", String.valueOf(i)}));
     }
     System.out.println("--------------------");
     do {
@@ -26,7 +26,7 @@ public class AnimalPicker {
           System.out.println("The negative number you entered has been automatically converted to its positive counterpart.");
         }
         try {
-        ChosenAnimal = Animals.TypesOfAnimals[Math.abs(ChosenAnimalByNumber)-1];
+        ChosenAnimal = Handler.get(new String[]{"name", String.valueOf(Math.abs(ChosenAnimalByNumber)-1)});
         hasSelectedAnimalType = true;
         }
         catch (ArrayIndexOutOfBoundsException IntegerTooHighException) {
@@ -35,9 +35,9 @@ public class AnimalPicker {
         }
       }
       catch (NumberFormatException ChosenAnimal_NFE) {
-        for(int i=0; i<Animals.TypesOfAnimals.length; i++) {
-          if (UserInput.equalsIgnoreCase(Animals.TypesOfAnimals[i])) {
-            ChosenAnimal = Animals.TypesOfAnimals[i];
+        for(int i=0; i<Integer.parseInt(Handler.get(new String[]{"length"})); i++) {
+          if (UserInput.equalsIgnoreCase(Handler.get(new String[]{"name", String.valueOf(i)}))) {
+            ChosenAnimal = Handler.get(new String[]{"name"});
             hasSelectedAnimalType = true;
             break;
           }
