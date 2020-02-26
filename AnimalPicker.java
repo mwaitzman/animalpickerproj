@@ -13,7 +13,7 @@ public class AnimalPicker {
     int ChosenAnimalByNumber;
     System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
     System.out.println("--------------------");
-    for (int i=0; i<Animals.TypesOfAnimals.length; i++) {
+    for (int i=0; i<Handler.get("length"); i++) {
       System.out.println("#" + (i+1) + ": " + Animals.TypesOfAnimals[i]);
     }
     System.out.println("--------------------");
