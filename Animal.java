@@ -12,6 +12,6 @@ class Animal {
 
   Animal lion = new Animal("lion", "Animalia", "Chordata", "Mammalia", "Carnivora", "Feliformia", "Felidae", "Pantherinae", "Panthera", "P. leo", "Panthera leo", new String[]{"P. l. leo", "P. l. melanochaita", "P. l. sinhaleyus"}, new String[]{"Panthera leo leo", "Panthera leo melanochaita", "Panthera leo sinhaleyus"}, new String[]{"male", "female"});
 
-  static ArrayList<Animal> ListOfAnimals = new ArrayList<>(1);
-
+  static ArrayList<Animal> ListOfAnimals = new ArrayList<>(0);
+  static ListOfAnimals.add(lion);
 }
