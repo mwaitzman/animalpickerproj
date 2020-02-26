@@ -74,6 +74,3 @@ public class AnimalPicker {
     //String UserInput = UserInputScanner.nextLine();
   }
 }
-class BASE_Animals {
-  public String[] TypesOfAnimals = {"lion","tiger","wolf","rabbit","bear","turtle"};
-}
