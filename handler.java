@@ -1,17 +1,17 @@
-package AnimalPicker;
+package AnimalPickerProject;
+import AnimalPickerProject.Animal;
 class Handler {
-  import static AnimalPicker.Animal;
-  protected get(String[] parameters) {
+  protected String get(String[] parameters) {
     if (parameters[0].toLowerCase == "name") {
 
-      return ListOfAnimals.Animal[parameters[1]];
+      return ListOfAnimals.Animal[Integer.parseInt(parameters[1])];
     }
     else if (parameter[0] == "length") {
       return (ListOfAnimals.length());
     }
-  /else {
+  else {
       System.out.println("invalid input");
-      return;
+      return("");
     }
   }
 }

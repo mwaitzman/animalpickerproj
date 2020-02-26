@@ -1,10 +1,11 @@
-package AnimalPicker;
+package AnimalPickerProject;
 //import AnimalPicker.*;
-import AnimalPicker.Handler;
+//import AnimalPicker.Handler;
+import AnimalPickerProject.Handler;
 import java.util.Scanner;
 public class AnimalPicker {
   public static void main(String[] args) {
-    Handler AnimalHandler = new Handler()///////////////
+    Handler AnimalHandler = new Handler();///////////////
   //  PossibleAnimals = DB_Animals.get("all", "name");
     Scanner UserInputScanner = new Scanner(System.in);
     boolean hasSelectedAnimalType = false;
