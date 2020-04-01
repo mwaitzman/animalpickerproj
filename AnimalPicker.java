@@ -1,17 +1,15 @@
 package AnimalPickerProject;
-//import AnimalPicker.*;
-//import AnimalPicker.Handler;
 import AnimalPickerProject.Handler;
 import java.util.Scanner;
 public class AnimalPicker {
   public static void main(String[] args) {
-    Handler AnimalHandler = new Handler();///////////////
-  //  PossibleAnimals = DB_Animals.get("all", "name");
+    Handler AnimalHandler = new Handler();
     Scanner UserInputScanner = new Scanner(System.in);
     boolean hasSelectedAnimalType = false;
     String ChosenAnimal = null;
     String UserInput;
     int ChosenAnimalByNumber;
+    String[] Animals = fetchAnimalList();
     System.out.println("choose an animal from the following list (type the number to the right of the animal you would like to select OR type the the name of the animal you would like to select (case doesn't matter)):");
     System.out.println("--------------------");
     System.out.println(Handler.get(new String[]{"name", String.ValueOf(1)});
@@ -73,5 +71,13 @@ public class AnimalPicker {
     } while (hasSelectedAnimalType == false); //part of a do-while loop
 
     //String UserInput = UserInputScanner.nextLine();
+  }
+  private String[] fetchAnimalList() {
+    FileReader FR = new FileReader("Animals.txt");
+    BufferedReader BfR = new BufferedReader(FR);
+
+    String[] foundAnimals
+
+    return foundAnimals[];
   }
 }
