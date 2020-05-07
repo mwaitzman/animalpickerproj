@@ -1,1 +1,1 @@
-lion, bear, wolf, tiger, chimpanzee, orangutan, elephant, scorpion
+lion, bear, wolf, tiger, chimpanzee, orangutan, elephant, scorpion;
