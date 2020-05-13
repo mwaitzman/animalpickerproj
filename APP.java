@@ -1,17 +1,16 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-//import java.util.ArrayList;
+import java.util.ArrayList;
 ////////////static import java.myUsefulPrograms.Log;
 class APP {
+  /**
+  finds animal file, then puts each animal from it into an arraylist,
+  then prints arraylist
+  **/
   public static void main(String[] args) throws FileNotFoundException {
     //----INITIALIZATION
-    System.out.println("Starting program...");
-    String AnimalListFileLocation = "Animals.txt";
-    File AnimalListFile = new File(AnimalListFileLocation);
-//    System.out.println("new File created");
-    Scanner AnimalListFileScanner = new Scanner(AnimalListFile);
-    String[] AnimalListFileAsStringArray = new String[(int)AnimalListFile.length()];
+    initializeProgram();
     String curtoken = "";
 //    System.out.println("curtoken created");
     int place = 0;
@@ -58,20 +57,40 @@ class APP {
       AnimalList[i] = AnimalListFileAsStringArray[i];
 //      System.out.println(AnimalList[i]);
     }
+    displayAnimalList();
+
+    System.out.println("End of program");
+  }
+
+
+
+  static void initializeProgram() {
+    System.out.println("Starting the program...");
+    /*doConfigFile();*/
+
+    String AnimalListFileLocation = "Animals.txt";
+    File AnimalListFile = new File(AnimalListFileLocation);
+//    System.out.println("new File created");
+    Scanner AnimalListFileScanner = new Scanner(AnimalListFile);
+    String[] AnimalListFileAsStringArray = new String[(int)AnimalListFile.length()];
+  }
+
+  static void displayAnimalList() {
     System.out.println("The animals are:\n-----");
     for (String Animal: AnimalList) {
       System.out.println(Animal);
     }
     System.out.println("-----");
-    System.out.println("End of program");
   }
   /*static void fetchConfigFile() {
     public final File configFile = new File("AnimalPickerConfigFile.cfg");
     if (configFile.exists()) {
-
+      parseConfigFile
     }
     else {
-      console.log()
+      System.out.println("Config file not found.");
+       Creating config file now...
+      createConfigFile();
     }
   }*/
 }
